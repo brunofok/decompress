@@ -7,13 +7,17 @@ bool isPositiveNumber(char c);
 std::string repeat(std::string word, int n);
 
 using namespace std;
-int main()
+int main(int argc, char* argv[])
 {
-    std::cout << "Hello World!\n";
+    if (argc < 2){
+        cout << "Please, provide an input file." <<endl;
+        return 0;
+    }
+
     int i = 0;
 
     ifstream myfile;
-    myfile.open ("input6.txt");
+    myfile.open (argv[1]);
 
     if(myfile.is_open()){
         std::cout << "success opening the file\n";
@@ -22,8 +26,15 @@ int main()
             text += line;
         }        
         std::cout << "size of input: " << text.size() << '\n';
-        
-        std::cout << "size of output: " << decompress(i).size() << std::endl;
+        std::string textOutput = decompress(i);
+        std::cout << "size of output: " << textOutput.size() << std::endl;
+
+        myfile.close();
+
+        ofstream output;
+        output.open("output.txt");
+        output << textOutput;
+        output.close();
     }
 }
 
