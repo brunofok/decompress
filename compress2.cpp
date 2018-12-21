@@ -37,11 +37,11 @@ std::string decompress(int& i){
         {
             int times = c - '0';
             i++;
-            /*
+            
             if(text[i] != '['){
                 std::cout << "Error: repetition should be >= 1";
                 return "";
-            }*/
+            }
 
             result += repeat(decompress(i), times);
         }else
@@ -61,10 +61,10 @@ bool isPositiveNumber(char c){
 
 std::string repeat(std::string word, int n){
     std::string str = "";
-    /*if (n < 1){
+    if (n < 1){
         std::cout << "Error: repetition should be >= 1";
         return "";
-    }*/
+    }
 
     while (n > 0){
         str += word;
