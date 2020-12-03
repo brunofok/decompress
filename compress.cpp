@@ -3,8 +3,8 @@
 static std::string text;
 
 std::string decompress(int& i);
-bool isPositiveNumber(char c);
-std::string repeat(std::string word, int n);
+bool isPositiveNumber(const char& c);
+std::string repeat(const std::string& word, const int& n);
 
 using namespace std;
 int main(int argc, char* argv[])
@@ -66,12 +66,13 @@ std::string decompress(int& i){
     return result;
 }
 
-bool isPositiveNumber(char c){
+bool isPositiveNumber(const char& c){
     return (c >= '0' && c <= '9');
 }
 
-std::string repeat(std::string word, int n){
+std::string repeat(const std::string& word, const int& times){
     std::string str = "";
+    int n = times;
     if (n < 1){
         std::cout << "Error: repetition should be >= 1";
         return "";
